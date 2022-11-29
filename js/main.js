@@ -44,6 +44,9 @@ const createPhoto = (id) => ({
   likes: getRandomPositiveInteger(CountLike.MIN, CountLike.MAX),
   comments: Array.from({length: getRandomPositiveInteger(1, MAX_COUNT_COMMENTS)}, createComment),
 });
-const photosDescriptions = Array.from({length: MAX_COUNT_PHOTOS}, createPhoto);
 
-console.log(photosDescriptions);
+const createPhotosArray = () => {
+  return Array.from({length: MAX_COUNT_PHOTOS}, createPhoto);
+};
+
+createPhotosArray();
