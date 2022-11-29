@@ -45,8 +45,6 @@ const createPhoto = (id) => ({
   comments: Array.from({length: getRandomPositiveInteger(1, MAX_COUNT_COMMENTS)}, createComment),
 });
 
-const createPhotosArray = () => {
-  return Array.from({length: MAX_COUNT_PHOTOS}, createPhoto);
-};
+const createPhotosArray = () => Array.from({length: MAX_COUNT_PHOTOS}, createPhoto);
 
 createPhotosArray();
