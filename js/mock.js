@@ -1,5 +1,5 @@
-import {checkMaxLenghtString, getRandomPositiveInteger} from'./utils.js';
-import {NAMES, MESSAGES, DESCRIPTIONS, MAX_COUNT_PHOTOS, MAX_COUNT_COMMENTS} from'./consts.js';
+import {getRandomPositiveInteger} from'./utils.js';
+import {NAMES, MESSAGES, DESCRIPTIONS, MAX_COUNT_PHOTOS, MAX_COUNT_COMMENTS, CountLike} from'./consts.js';
 
 const createComment = (id) => ({
   id,
