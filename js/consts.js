@@ -11,13 +11,24 @@ const MESSAGES = [
 
 const DESCRIPTIONS = ['Да, еще одно фото', 'Отличный день для торта', 'Вторник – день вкусняшек', 'Я делаю себяшку', 'Соскучились?'];
 
-const MAX_COUNT_PHOTOS = 25;
+const CountPhotos = {
+  MIN: 1,
+  MAX: 25
+};
 
-const MAX_COUNT_COMMENTS = 8;
+const CountComments = {
+  MIN: 1,
+  MAX: 8
+};
+
+const AvatarNumber = {
+  MIN: 1,
+  MAX: 6
+};
 
 const CountLike = {
   MIN: 15,
   MAX: 200,
 };
 
-export {NAMES, MESSAGES, DESCRIPTIONS, MAX_COUNT_PHOTOS, MAX_COUNT_COMMENTS, CountLike};
+export {NAMES, MESSAGES, DESCRIPTIONS, CountPhotos, CountComments, AvatarNumber, CountLike};
