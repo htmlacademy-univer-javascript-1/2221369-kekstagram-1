@@ -31,4 +31,6 @@ const CountLike = {
   MAX: 200,
 };
 
-export {NAMES, MESSAGES, DESCRIPTIONS, CountPhotos, CountComments, AvatarNumber, CountLike};
+const DEFAULT_RENDERED_COMMENTS = 5;
+
+export {NAMES, MESSAGES, DESCRIPTIONS, CountPhotos, CountComments, AvatarNumber, CountLike, DEFAULT_RENDERED_COMMENTS};
