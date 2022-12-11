@@ -1,5 +1,5 @@
-import {createPhotos} from './mock.js';
-import {createThumbnails} from './thumbnails.js';
+import { createPhotos } from './mock.js';
+import { initThumbnails } from './thumbnails.js';
 
-const photos = createPhotos();
-createThumbnails(photos);
+const data = createPhotos();
+initThumbnails(data);
