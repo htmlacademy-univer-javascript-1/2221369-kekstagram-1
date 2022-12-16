@@ -13,13 +13,14 @@ const getThumbnailTemplate = ({id, url, likes, comments}) => `<a href="#" class=
   </a>
 `;
 
-const onThumbnailClick = (evt) => {
+const onPicturesClick = (evt) => {
   const target = evt.target;
   const picture = target.closest('.picture');
-  const id = picture.dataset.id;
-  const [ photo ] = photos.filter((element) => element.id === +id);
-
-  openBigPicture(photo);
+  if (picture) {
+    const id = picture.dataset.id;
+    const [ photo ] = photos.filter((element) => element.id === +id);
+    openBigPicture(photo);
+  }
 };
 
 const createThumbnails = () => {
@@ -29,8 +30,7 @@ const createThumbnails = () => {
 const initThumbnails = (data) => {
   photos = data.slice();
   createThumbnails();
-  const pictures = picturesContainer.querySelectorAll('.picture');
-  pictures.forEach((picture) => picture.addEventListener('click', onThumbnailClick));
+  picturesContainer.addEventListener('click', onPicturesClick);
 };
 
 export { initThumbnails };
