@@ -1,4 +1,4 @@
-const checkMaxLenghtString = (string, limit) => string.lenght <= limit;
+const checkMaxLenghtString = (string, limit) => string.length <= limit;
 
 const getRandomPositiveInteger = (a, b) => {
   const lower = Math.ceil(Math.min(Math.abs(a), Math.abs(b)));
@@ -7,6 +7,6 @@ const getRandomPositiveInteger = (a, b) => {
   return Math.floor(result);
 };
 
-const isEscapeKey = (evt) => evt.keyCode === 27;
+const isEscapeKey = (evt) => evt.key === 'Escape';
 
 export { checkMaxLenghtString, getRandomPositiveInteger, isEscapeKey };
