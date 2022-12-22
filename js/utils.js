@@ -1,3 +1,5 @@
+import { TIMEOUT_THUBNAILS_FILTERS } from './consts.js';
+
 const checkMaxLenghtString = (string, limit) => string.length <= limit;
 
 const getRandomPositiveInteger = (a, b) => {
@@ -28,4 +30,29 @@ const showAlert = (message, alertShowTime) => {
   setTimeout(() => alertContainer.remove(), alertShowTime);
 };
 
-export { checkMaxLenghtString, getRandomPositiveInteger, isEscapeKey, showAlert };
+const shuffleArray = (arr) => arr.map((a) => [Math.random(), a]).sort((a, b) => a[0] - b[0]).map((a) => a[1]);
+
+const debounce = (callback, timeoutDelay = TIMEOUT_THUBNAILS_FILTERS) => {
+  let timeoutId;
+
+  return (...rest) => {
+    clearTimeout(timeoutId);
+
+    timeoutId = setTimeout(() => callback.apply(this, rest), timeoutDelay);
+  };
+};
+
+const throttle = (callback, delayBetweenFrames) => {
+  let lastTime = 0;
+
+  return (...rest) => {
+    const now = new Date();
+
+    if (now - lastTime >= delayBetweenFrames) {
+      callback.apply(this, rest);
+      lastTime = now;
+    }
+  };
+};
+
+export { checkMaxLenghtString, getRandomPositiveInteger, isEscapeKey, showAlert, shuffleArray, debounce, throttle };
