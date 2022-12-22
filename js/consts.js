@@ -1,36 +1,3 @@
-const NAMES = ['Эмилия','Леля','Валентина','Александра','Анна'];
-
-const MESSAGES = [
-  'Всё отлично!',
-  'В целом всё неплохо. Но не всё.',
-  'Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.',
-  'Моя бабушка случайно чихнула с фотоаппаратом в руках и у неё получилась фотография лучше.',
-  'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.',
-  'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!'
-];
-
-const DESCRIPTIONS = ['Да, еще одно фото', 'Отличный день для торта', 'Вторник – день вкусняшек', 'Я делаю себяшку', 'Соскучились?'];
-
-const CountPhotos = {
-  MIN: 1,
-  MAX: 25
-};
-
-const CountComments = {
-  MIN: 1,
-  MAX: 8
-};
-
-const AvatarNumber = {
-  MIN: 1,
-  MAX: 6
-};
-
-const CountLike = {
-  MIN: 15,
-  MAX: 200,
-};
-
 const DEFAULT_RENDERED_COMMENTS = 5;
 const MAX_COMMENT_LENGTH = 140;
 const MAX_HASHTAG_COUNT = 5;
@@ -46,5 +13,7 @@ const ErrorMessage = {
   COMMENT_MAX_LENGTH: `Длина комментария не может составлять больше ${MAX_COMMENT_LENGTH} символов`
 };
 
+const ALERT_SHOW_TIME = 5000;
 
-export {NAMES, MESSAGES, DESCRIPTIONS, CountPhotos, CountComments, AvatarNumber, CountLike, DEFAULT_RENDERED_COMMENTS, MAX_COMMENT_LENGTH, MAX_HASHTAG_COUNT, MAX_HASHTAG_LENGTH, ErrorMessage};
+
+export { DEFAULT_RENDERED_COMMENTS, MAX_COMMENT_LENGTH, MAX_HASHTAG_COUNT, MAX_HASHTAG_LENGTH, ErrorMessage, ALERT_SHOW_TIME};
