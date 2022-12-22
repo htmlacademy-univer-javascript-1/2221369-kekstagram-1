@@ -95,4 +95,4 @@ const validateForm = () => {
   showSubmitButton();
 };
 
-export { form, showSubmitButton, validateForm };
+export { form, showSubmitButton, validateForm, submitButton };

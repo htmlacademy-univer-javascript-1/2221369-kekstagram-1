@@ -1,7 +1,9 @@
 import { isEscapeKey } from './utils.js';
-import { form, showSubmitButton, validateForm } from './validation-form.js';
+import { form, showSubmitButton, validateForm, submitButton } from './validation-form.js';
 import { onScaleButtonClick, scaleContainer } from './picture-scale.js';
 import { effectList, addEffect, hideUiSlider } from './effects.js';
+import { sendData } from './api.js';
+import { renderMessage } from './messages.js';
 
 const body = document.querySelector('body');
 const imgUploadField = document.querySelector('#upload-file');
@@ -18,19 +20,24 @@ const closeUploadPopup  = () => {
   effectList.removeEventListener('click', addEffect);
   document.removeEventListener('keydown', onButtonEscKeydown);
   closeButton.removeEventListener('click', onCloseButtonClick);
+};
+
+const closeForm = () => {
+  closeUploadPopup();
   imgUploadPreview.removeAttribute('class');
   imgUploadPreview.removeAttribute('style');
   form.reset();
+
 };
 
 function onButtonEscKeydown(evt) {
   if (isEscapeKey(evt)) {
-    closeUploadPopup();
+    closeForm();
   }
 }
 
 function onCloseButtonClick() {
-  closeUploadPopup();
+  closeForm();
 }
 
 const setFocusListeners = (field) => {
@@ -58,11 +65,31 @@ const onImgUploadFieldChange = () => {
 const onHashtagInput = () => showSubmitButton();
 const onCommentInput = () => showSubmitButton();
 
+const setUserFormSubmit = (onSuccess, onError) => {
+  form.addEventListener('submit', (evt) => {
+    evt.preventDefault();
+    submitButton.disabled = true;
+    sendData(
+      () => {
+        onSuccess();
+        renderMessage(true);
+      },
+      () => {
+        onError();
+        renderMessage();
+      },
+      new FormData(evt.target),
+    );
+  });
+};
+
+
 const renderUploadForm = () => {
   imgUploadField.addEventListener('change', onImgUploadFieldChange);
   hashtagsField.addEventListener('input', onHashtagInput);
   commentsField.addEventListener('input', onCommentInput);
   validateForm();
+  setUserFormSubmit(closeForm, closeUploadPopup);
 };
 
 export { renderUploadForm, hashtagsField, commentsField, imgUploadPreview };
